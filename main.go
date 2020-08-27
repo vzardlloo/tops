@@ -8,6 +8,7 @@ import (
 func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/html/*")
+	r.Static("/static", "./static")
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
@@ -15,7 +16,7 @@ func main() {
 	})
 	r.GET("/index", func(context *gin.Context) {
 		context.HTML(http.StatusOK, "index.html", gin.H{
-			"title": "八斗",
+			"title": "EduHub",
 		})
 	})
 
